@@ -1,0 +1,6 @@
+name: dartlife
+version: 0.0.1
+description: A sample application
+dependencies:
+  angular: any
+  browser: any

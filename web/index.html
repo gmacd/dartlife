@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html ng-app>
+  <head>
+    <title>DartLife</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+ 
+  <body>
+    <div life-grid>
+      <h3>DartLife</h3>
+      
+      <table>
+        <tr ng-repeat="row in grid">
+          <td ng-repeat="col in row track by $index">
+            {{$parent.$index}}-{{$index}} {{col}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <script type="application/dart" src="main.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
