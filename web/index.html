@@ -7,13 +7,13 @@
   </head>
  
   <body>
-    <div life-grid>
+    <div life>
       <h3>DartLife</h3>
       
       <table>
-        <tr ng-repeat="row in grid">
-          <td ng-repeat="col in row track by $index">
-            {{$parent.$index}}-{{$index}} {{col}}
+        <tr ng-repeat="row in ctrl.grid">
+          <td ng-repeat="cell in row">
+            {{cell.visible}}
           </td>
         </tr>
       </table>
