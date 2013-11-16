@@ -12,8 +12,8 @@
       
       <table>
         <tr ng-repeat="row in ctrl.grid">
-          <td ng-repeat="cell in row">
-            {{cell.visible}}
+          <td ng-repeat="cell in row"
+              ng-class="{true:'cell-on', false:'cell-off'}[cell.visible]">
           </td>
         </tr>
       </table>

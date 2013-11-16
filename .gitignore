@@ -2,3 +2,11 @@
 packages
 .project
 pubspec.lock
+
+web/main.dart.js
+
+web/main.dart.js.deps
+
+web/main.dart.js.map
+
+web/main.dart.precompiled.js

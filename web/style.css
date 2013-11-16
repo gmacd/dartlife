@@ -1,0 +1,16 @@
+table {
+	table-layout: fixed;
+}
+
+.cell-off {
+	background: black;
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+.cell-on {
+	background: yellow;
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
