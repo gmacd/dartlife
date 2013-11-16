@@ -13,7 +13,7 @@
       <table>
         <tr ng-repeat="row in ctrl.grid">
           <td ng-repeat="cell in row"
-              ng-class="{true:'cell-on', false:'cell-off'}[cell.visible]">
+              ng-class="{true:'cell-on', false:'cell-off'}[cell.alive]">
           </td>
         </tr>
       </table>
