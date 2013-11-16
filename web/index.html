@@ -13,10 +13,17 @@
       <table>
         <tr ng-repeat="row in ctrl.grid">
           <td ng-repeat="cell in row"
-              ng-class="{true:'cell-on', false:'cell-off'}[cell.alive]">
+              ng-class="{true:'cell-on', false:'cell-off'}[cell.alive]"
+              ng-click="cell.toggle()">
           </td>
         </tr>
       </table>
+    
+      <button type="button" ng-click="ctrl.togglePause()" ng-cloak>
+        {{{true:'Start', false:'Pause'}[ctrl.paused]}}
+      </button>
+      <button type="button" ng-click="ctrl.clear()">Clear</button>
+      <button type="button" ng-click="ctrl.randomizeGrid()">Randomize</button>
     </div>
     
     <script type="application/dart" src="main.dart"></script>

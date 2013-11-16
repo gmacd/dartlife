@@ -7,21 +7,25 @@ import 'dart:async';
     publishAs: 'ctrl')
 class LifeController {
 
-  final numRows = 10;
-  final numCols = 10;
+  final numRows = 30;
+  final numCols = 30;
 
   List<List<Cell>> grid;
   List<List<Cell>> nextGrid;
 
+  bool paused = true;
+
 
   LifeController() {
-    grid = generateRandomGrid(12345);
-    nextGrid = generateRandomGrid(12345);
+    randomizeGrid();
 
-    var timer = new Timer.periodic(new Duration(milliseconds: 300), updateCells);
+    var timer = new Timer.periodic(new Duration(milliseconds: 100), updateCells);
   }
 
   updateCells(timer) {
+    if (paused)
+      return;
+
     for (var y = 0; y < numRows; y++) {
       for (var x = 0; x < numCols; x++) {
         var numNeighbours = numNeighbours(grid, x, y);
@@ -85,6 +89,23 @@ class LifeController {
       }
     }
   }
+
+  togglePause() { paused = !paused; }
+
+  clear() {
+    for (var y = 0; y < numRows; y++) {
+      for (var x = 0; x < numCols; x++) {
+        grid[y][x].alive = false;
+        nextGrid[y][x].alive = false;
+      }
+    }
+  }
+
+  randomizeGrid() {
+    var seed = new Random().nextInt(100000);
+    grid = generateRandomGrid(seed);
+    nextGrid = generateRandomGrid(seed);
+  }
 }
 
 
@@ -93,6 +114,8 @@ class Cell {
   bool alive;
 
   Cell(this.id, this.alive);
+
+  toggle() { alive = !alive; }
 }
 
 

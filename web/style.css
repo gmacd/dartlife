@@ -1,16 +1,20 @@
 table {
-	table-layout: fixed;
+  table-layout: fixed;
 }
 
 .cell-off {
-	background: black;
-	width: 20px;
-	height: 20px;
-	border: 1px solid black;
+  background: black;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
 }
 .cell-on {
-	background: yellow;
-	width: 20px;
-	height: 20px;
-	border: 1px solid black;
+  background: yellow;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+}
+
+[ng-cloak] {
+  display: none;
 }
