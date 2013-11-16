@@ -22,7 +22,7 @@ class LifeController {
     var timer = new Timer.periodic(new Duration(milliseconds: 100), updateCells);
   }
 
-  updateCells(timer) {
+  updateCells(Timer timer) {
     if (paused)
       return;
 
@@ -42,11 +42,11 @@ class LifeController {
     switchGrids();
   }
 
-  Cell getCell(g, x, y) {
+  Cell getCell(List<List<Cell>> g, int x, int y) {
     return g[y][x];
   }
 
-  int numNeighbours(List<List<Cell>> g, x, y) {
+  int numNeighbours(List<List<Cell>> g, int x, int y) {
     var left = x-1;
     var right = x+1;
     var above = y-1;
@@ -70,7 +70,7 @@ class LifeController {
     return liveStates.fold(0, (sum, live) => sum + (live ? 1 : 0));
   }
 
-  List<List<Cell>> generateRandomGrid(seed) {
+  List<List<Cell>> generateRandomGrid(int seed) {
     var rnd = new Random(seed);
     return new List<List<Cell>>.generate(numRows,
         (int rowIdx) => new List<Cell>.generate(numCols,
